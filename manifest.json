@@ -1,29 +1,31 @@
 {
-    "name":"example",
-    "description":"Proof of concept plugin to test things.",
-    "class":"main.js",
-    "commands":[
+    "name": "example",
+    "description": "Proof of concept plugin to test things.",
+    "class": "main.js",
+    "commands": [
         {
-            "name":"sing",
-            "description":"Responds with a song x amount of times",
-            "class":"main.js",
-            "method":"singCommand",
-            "source":[
+            "name": "sing",
+            "description": "Responds with a song x amount of times",
+            "class": "main.js",
+            "method": "singCommand",
+            "source": [
                 "discord",
                 "minecraft"
             ],
-            "options":[{
-                "name": "value",
-                "type": "INTEGER",
-                "description": "How many songs you'd like to hear",
-                "required": true
-            }]
+            "options": [
+                {
+                    "name": "value",
+                    "type": "INTEGER",
+                    "description": "How many songs you'd like to hear",
+                    "required": true
+                }
+            ]
         }
     ],
-    "minecraft":{
-        "chat":{
-            "class":"main.js",
-            "method":"onChat"
+    "minecraft": {
+        "chat": {
+            "class": "main.js",
+            "method": "onChat"
         }
     }
 }
