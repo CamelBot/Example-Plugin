@@ -1,5 +1,6 @@
 const { EventEmitter } = require('events');
 
+
 module.exports = class plugin extends EventEmitter {
     /**
      * 
@@ -31,6 +32,27 @@ module.exports = class plugin extends EventEmitter {
                     'command': 'tellraw @a {"text":"la"}'
                 }) + '\n');
             }
+        }
+        if(lol.source=='minecraft'){
+            lol.game.socket.write(JSON.stringify({
+                "packet":"command",
+                "command":"tellraw @a {\"text\":\"Singing now\"}"
+            })+"\n");
+            for (let i = 0; i < parseInt(lol.args[0]); i++){
+                lol.game.socket.write(JSON.stringify({
+                    "packet":"command",
+                    "command":"tellraw @a {\"text\":\"la\"}"
+                })+"\n");
+            }
+        }
+    }
+    onChat(message){
+        if(message.content.includes("example")){
+            return(true)
+        }
+        if(message.content.includes("yeet")){
+            message.content = message.content.replace("yeet","lol")
+            return(false)
         }
     }
     /**
